@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-class SpacexRepository {
+class AppRepository {
   Future getLatestLaunch() async {
     var response = await http
         .get(Uri.parse('https://api.spacexdata.com/v4/launches/latest'));

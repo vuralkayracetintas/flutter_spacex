@@ -6,7 +6,7 @@ import 'package:kartal/kartal.dart';
 import 'package:spacex_flutter/bloc/spacex_bloc.dart';
 import 'package:spacex_flutter/bloc/spacex_events.dart';
 import 'package:spacex_flutter/bloc/spacex_states.dart';
-import 'package:spacex_flutter/feature/home/home_page.dart';
+import 'package:spacex_flutter/core/home/home_page.dart';
 import 'package:spacex_flutter/product/constans/string_constans.dart';
 import 'package:spacex_flutter/product/repository/spacex_repositorty.dart';
 
@@ -19,7 +19,17 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
+  late final TabController _tabController;
+  final double _notchMargin = 10;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController =
+        TabController(length: _MyTabViews.values.length, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -28,6 +38,10 @@ class _HomeViewState extends State<HomeView> {
         RepositoryProvider.of<SpacexRepository>(context),
       )..add(LoadSpacexData()),
       child: Scaffold(
+        bottomNavigationBar: BottomAppBar(
+            notchMargin: _notchMargin,
+            shape: const CircularNotchedRectangle(),
+            child: _myTabBar()),
         appBar: AppBar(
           title: Text(StringConstans.appBarTitle,
               style: GoogleFonts.raleway(
@@ -50,12 +64,19 @@ class _HomeViewState extends State<HomeView> {
                   onRefresh: () async {
                     BlocProvider.of<SpacexBloc>(context).add(LoadSpacexData());
                   },
-                  //_refresh,
-                  child: HomePage(
-                    size: size,
-                    state: state,
-                    index: index,
-                  ));
+                  child: TabBarView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: _tabController,
+                      children: [
+                        HomePage(
+                          state: state,
+                          size: size,
+                          index: index,
+                        ),
+                        Container(color: Colors.blue),
+                        Container(color: Colors.green),
+                        Container(color: Colors.pink),
+                      ]));
             }
             return const SizedBox.shrink();
           },
@@ -63,4 +84,22 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
+
+  TabBar _myTabBar() {
+    return TabBar(
+      indicatorColor: Colors.white,
+      labelColor: Colors.green,
+      unselectedLabelColor: Colors.red,
+      padding: EdgeInsets.zero,
+      onTap: (int index) {},
+      labelStyle: const TextStyle(fontStyle: FontStyle.italic),
+      unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal),
+      controller: _tabController,
+      tabs: _MyTabViews.values.map((e) => Tab(text: e.name)).toList(),
+    );
+  }
 }
+
+enum _MyTabViews { HOME, ALL, favorite, profile }
+
+extension _MyTabViewExtension on _MyTabViews {}

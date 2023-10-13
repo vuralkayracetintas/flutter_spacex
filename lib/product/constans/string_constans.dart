@@ -13,6 +13,7 @@ class StringConstans {
 
   static const String crewMember = 'Crew Member';
   static const String baseUrl = "https://api.spacexdata.com/v4/launches/latest";
+  //https://api.spacexdata.com/v4/launches/latest
 
   static const String failLoadData = "Failed to load data";
 
@@ -32,7 +33,7 @@ class StringConstans {
   static const String flightNumber = 'Flight Number: ';
 
   static const String date = 'Date : ';
-  static const String spacemanImage = 'assets/images/spaceman.png';
+  // static const String spacemanImage = 'assets/images/spaceman.png';
 
   static const String errorLoadData = 'Error loading data';
   static const String detaildValueNot = "Detail Values Not Found";

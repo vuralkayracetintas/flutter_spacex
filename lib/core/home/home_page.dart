@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 import 'package:spacex_flutter/bloc/spacex_states.dart';
-import 'package:spacex_flutter/feature/widgets/custom_link_text_widget.dart';
+import 'package:spacex_flutter/core/widgets/custom_link_text_widget.dart';
 import 'package:spacex_flutter/product/constans/string_constans.dart';
 
 class HomePage extends StatefulWidget {
@@ -72,17 +72,15 @@ class _HomePageState extends State<HomePage> {
                     for (crewMember in widget.state.spacexModel.crew)
                       Row(
                         children: [
-                          Padding(
-                            padding: context.padding.low,
-                            child: const CircleAvatar(
-                              radius: 30,
-                              backgroundImage:
-                                  AssetImage(StringConstans.spacemanImage),
-                            ),
-                          ),
-                          SizedBox(
-                            width: widget.size.width * 0.05,
-                          ),
+                          // Padding(
+                          //   padding: context.padding.low,
+                          //   child: const CircleAvatar(
+                          //     radius: 30,
+                          //     backgroundImage:
+                          //         AssetImage(StringConstans.spacemanImage),
+                          //   ),
+                          // ),
+
                           Text(
                             crewMember,
                             style: GoogleFonts.raleway(

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:spacex_flutter/feature/home/home_view.dart';
+import 'package:spacex_flutter/core/home/home_view.dart';
 import 'package:spacex_flutter/product/repository/spacex_repositorty.dart';
 
 class SplashPage extends StatefulWidget {

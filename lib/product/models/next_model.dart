@@ -163,7 +163,7 @@ class Links {
       );
 
   Map<String, dynamic> toMap() => {
-        "patch": patch?.toMap(),
+        "patch": patch.toMap(),
         "reddit": reddit?.toMap(),
         "flickr": flickr?.toMap(),
         "presskit": presskit,
@@ -234,7 +234,7 @@ class Reddit {
   String? campaign;
   String? launch;
   String? media;
-  dynamic? recovery;
+  dynamic recovery;
 
   Reddit({
     required this.campaign,

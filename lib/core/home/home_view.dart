@@ -77,7 +77,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             size: size,
                             index: index,
                           ),
-                          NextLaunch(),
+                          const NextLaunch(),
                           Container(color: Colors.green),
                         ]),
                   );
@@ -102,6 +102,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 }
 
+// ignore: constant_identifier_names
 enum _MyTabViews { Latest, Upcoming, Past }
 
 extension _MyTabViewExtension on _MyTabViews {}

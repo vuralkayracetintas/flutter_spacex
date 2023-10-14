@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:spacex_flutter/product/models/latest_model.dart';
 
 import 'package:spacex_flutter/product/models/next_model.dart';
 

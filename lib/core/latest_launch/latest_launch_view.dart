@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
@@ -27,7 +26,6 @@ class LatestLaunch extends StatefulWidget {
 class _LatestLaunchState extends State<LatestLaunch> {
   @override
   Widget build(BuildContext context) {
-    var crewMember = widget.state.spacexModel.crew[widget.index];
     final Uri urlReddit =
         Uri.parse(widget.state.spacexModel.links.reddit.launch);
     final Uri urlYoutube = Uri.parse(widget.state.spacexModel.links.webcast);
@@ -108,7 +106,7 @@ class _LatestLaunchState extends State<LatestLaunch> {
                           (index) {
                             return Card(
                               child: ListTile(
-                                leading: Image(
+                                leading: const Image(
                                     image: AssetImage(
                                         ImageConstans.imageNotFound)),
                                 title: Text(

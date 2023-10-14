@@ -1,13 +1,13 @@
 // To parse this JSON data, do
 //
-//     final LatestModel = LatestModelFromMap(jsonString);
+//     final LatestModel = latestModelFromMap(jsonString);
 
 import 'dart:convert';
 
-LatestModel LatestModelFromMap(String str) =>
+LatestModel latestModelFromMap(String str) =>
     LatestModel.fromMap(json.decode(str));
 
-String LatestModelToMap(LatestModel data) => json.encode(data.toMap());
+String latestModelToMap(LatestModel data) => json.encode(data.toMap());
 
 class LatestModel {
   dynamic fairings;

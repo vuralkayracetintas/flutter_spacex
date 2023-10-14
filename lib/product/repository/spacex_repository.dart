@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:spacex_flutter/core/next_launch/next_launch_bloc.dart';
 import 'package:spacex_flutter/product/constans/string_constans.dart';
 import 'package:spacex_flutter/product/models/latest_model.dart';
-import 'package:spacex_flutter/product/models/next_model.dart';
 
 class SpacexRepository {
   final String _baseUrl = StringConstans.baseUrl;

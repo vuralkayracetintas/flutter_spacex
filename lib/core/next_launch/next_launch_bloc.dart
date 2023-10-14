@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:spacex_flutter/bloc/next_bloc_f/next_bloc.dart';
 import 'package:spacex_flutter/bloc/next_bloc_f/next_evets.dart';
 import 'package:spacex_flutter/bloc/next_bloc_f/next_state.dart';
 import 'package:spacex_flutter/core/next_launch/next_launch_view.dart';
-
-import 'package:spacex_flutter/product/repository/spacex_repository.dart';
 import 'package:spacex_flutter/product/repository/upcoming_repository.dart';
 
 class NextLaunch extends StatefulWidget {

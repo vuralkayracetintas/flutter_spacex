@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:spacex_flutter/core/home/home_view.dart';
+import 'package:spacex_flutter/product/repository/past_repository.dart';
 import 'package:spacex_flutter/product/repository/spacex_repository.dart';
 import 'package:spacex_flutter/product/repository/upcoming_repository.dart';
 
@@ -31,6 +32,8 @@ class _SplashPageState extends State<SplashPage> {
                     RepositoryProvider<NextLaunchRepository>(
                       create: (context) => NextLaunchRepository(),
                     ),
+                    RepositoryProvider(
+                        create: (context) => PastLaunchRepository())
                   ],
                   child: const HomeView(),
                 )),
@@ -44,14 +47,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircularProgressIndicator()
-            // Lottie.asset(
-            //   StringConstans.lottieSpacex,
-            //   width: 200,
-            //   height: 200,
-            // ),
-          ],
+          children: [CircularProgressIndicator()],
         ),
       ),
     );

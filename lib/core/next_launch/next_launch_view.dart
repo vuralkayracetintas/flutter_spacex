@@ -16,7 +16,6 @@ class NextLaunchView extends StatefulWidget {
 }
 
 class _NextLaunchViewState extends State<NextLaunchView> {
-  bool control = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

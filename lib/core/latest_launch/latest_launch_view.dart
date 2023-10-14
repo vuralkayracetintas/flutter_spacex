@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 import 'package:spacex_flutter/bloc/latest_bloc_f/lates_states.dart';
-import 'package:spacex_flutter/core/widgets/carousel_slider_latest_launch.dart';
+import 'package:spacex_flutter/core/widgets/carousel_slider_models.dart';
 import 'package:spacex_flutter/core/widgets/custom_link_text_widget.dart';
 import 'package:spacex_flutter/product/constans/image_constans.dart';
 import 'package:spacex_flutter/product/constans/string_constans.dart';
@@ -49,7 +49,11 @@ class _LatestLaunchState extends State<LatestLaunch> {
               return Center(
                 child: Column(
                   children: [
-                    const CarouselSliderLatestLaunch(),
+                    ImageConstans().imageList.isEmpty
+                        ? const Text('No Image Found 😭')
+                        : CarouselSliderModel(
+                            items: ImageConstans().imageList,
+                          ),
                     ListTile(
                       leading: Image.network(
                         widget.state.spacexModel.links.patch.small,

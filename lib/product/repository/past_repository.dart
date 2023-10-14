@@ -9,9 +9,11 @@ class PastLaunchRepository {
     try {
       final response = await _dio.get(_pastUrl);
       if (response.statusCode == 200) {
-        final List<PastLaunchModel> dataList = response.data;
+        final List<dynamic> dataList = response.data;
+        final List<PastLaunchModel> launchModels =
+            dataList.map((data) => PastLaunchModel.fromMap(data)).toList();
 
-        return dataList;
+        return launchModels;
       } else {
         throw Exception(
             'HTTP isteği başarısız: ${response.statusCode}, Hata mesajı: ${response.data}');

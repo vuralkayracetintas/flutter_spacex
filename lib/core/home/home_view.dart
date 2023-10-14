@@ -8,6 +8,7 @@ import 'package:spacex_flutter/bloc/latest_bloc_f/lates_events.dart';
 import 'package:spacex_flutter/bloc/latest_bloc_f/lates_states.dart';
 import 'package:spacex_flutter/core/latest_launch/latest_launch_view.dart';
 import 'package:spacex_flutter/core/next_launch/next_launch_bloc.dart';
+import 'package:spacex_flutter/core/past_launch/past_launch_bloc.dart';
 
 import 'package:spacex_flutter/product/constans/string_constans.dart';
 import 'package:spacex_flutter/product/repository/spacex_repository.dart';
@@ -78,7 +79,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             index: index,
                           ),
                           const NextLaunch(),
-                          Container(color: Colors.green),
+                          const PastLauncBloc()
                         ]),
                   );
                 }

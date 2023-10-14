@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:spacex_flutter/bloc/next_bloc_f/next_state.dart';
+
 import 'package:spacex_flutter/product/models/past_model.dart';
 
 abstract class PastStates extends Equatable {
@@ -21,7 +21,7 @@ class PastLoadingState extends PastStates {
 class PastLoadedState extends PastStates {
   final List<PastLaunchModel> pastModel;
 
-  PastLoadedState(this.pastModel);
+  const PastLoadedState(this.pastModel);
 
   @override
   List<Object?> get props => [

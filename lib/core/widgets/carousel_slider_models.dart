@@ -2,11 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex_flutter/product/constans/image_constans.dart';
 
-class CarouselSliderLatestLaunch extends StatelessWidget {
-  const CarouselSliderLatestLaunch({
+class CarouselSliderModel extends StatelessWidget {
+  const CarouselSliderModel({
     super.key,
+    required this.items,
   });
-
+  final List<String> items;
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
@@ -16,7 +17,7 @@ class CarouselSliderLatestLaunch extends StatelessWidget {
           aspectRatio: 10.0,
           initialPage: 2,
           height: 300),
-      items: ImageConstans().imageList.map((i) {
+      items: items.map((images) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
@@ -26,7 +27,7 @@ class CarouselSliderLatestLaunch extends StatelessWidget {
                   child: Stack(
                     children: <Widget>[
                       Image.network(
-                        i,
+                        images,
                         fit: BoxFit.cover,
                         width: 1000.0,
                         height: 300,

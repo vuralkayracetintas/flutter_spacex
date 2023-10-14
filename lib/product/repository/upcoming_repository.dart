@@ -9,10 +9,8 @@ class NextLaunchRepository {
     try {
       final response = await _dio.get(_nextUrl);
       if (response.statusCode == 200) {
-        final List<dynamic> dataList =
-            response.data; // API yanıtını bir listeye dönüştür
+        final List<dynamic> dataList = response.data;
 
-        // Listeyi NextLaunchModel'e dönüştür
         final List<NextLaunchModel> launchModels =
             dataList.map((data) => NextLaunchModel.fromMap(data)).toList();
 

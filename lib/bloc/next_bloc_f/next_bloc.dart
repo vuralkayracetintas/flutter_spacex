@@ -12,7 +12,6 @@ class NextBloc extends Bloc<NextEvents, NextStates> {
         emit(NextLoadingState());
         try {
           final model = await _repository.getNextLaunch();
-          // final nextLaunch = await _Repository.getNextLaunch();
           emit(NextLoadedState(model));
         } catch (e) {
           if (e is Exception) {

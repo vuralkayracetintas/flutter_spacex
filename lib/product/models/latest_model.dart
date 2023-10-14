@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final spacexModel = spacexModelFromMap(jsonString);
+//     final LatestModel = LatestModelFromMap(jsonString);
 
 import 'dart:convert';
 
-SpacexModel spacexModelFromMap(String str) =>
-    SpacexModel.fromMap(json.decode(str));
+LatestModel LatestModelFromMap(String str) =>
+    LatestModel.fromMap(json.decode(str));
 
-String spacexModelToMap(SpacexModel data) => json.encode(data.toMap());
+String LatestModelToMap(LatestModel data) => json.encode(data.toMap());
 
-class SpacexModel {
+class LatestModel {
   dynamic fairings;
   Links links;
   dynamic staticFireDateUtc;
@@ -18,10 +18,10 @@ class SpacexModel {
   dynamic window;
   String rocket;
   bool success;
-  List<dynamic> failures;
+
   dynamic details;
-  List<String> crew;
-  List<dynamic> ships;
+  List<Crew> crew;
+
   List<String> capsules;
   List<String> payloads;
   String launchpad;
@@ -38,7 +38,7 @@ class SpacexModel {
   String launchLibraryId;
   String id;
 
-  SpacexModel({
+  LatestModel({
     required this.fairings,
     required this.links,
     required this.staticFireDateUtc,
@@ -47,10 +47,8 @@ class SpacexModel {
     required this.window,
     required this.rocket,
     required this.success,
-    required this.failures,
     required this.details,
     required this.crew,
-    required this.ships,
     required this.capsules,
     required this.payloads,
     required this.launchpad,
@@ -68,7 +66,7 @@ class SpacexModel {
     required this.id,
   });
 
-  factory SpacexModel.fromMap(Map<String, dynamic> json) => SpacexModel(
+  factory LatestModel.fromMap(Map<String, dynamic> json) => LatestModel(
         fairings: json["fairings"],
         links: Links.fromMap(json["links"]),
         staticFireDateUtc: json["static_fire_date_utc"],
@@ -77,10 +75,8 @@ class SpacexModel {
         window: json["window"],
         rocket: json["rocket"],
         success: json["success"],
-        failures: List<dynamic>.from(json["failures"].map((x) => x)),
         details: json["details"],
-        crew: List<String>.from(json["crew"].map((x) => x)),
-        ships: List<dynamic>.from(json["ships"].map((x) => x)),
+        crew: List<Crew>.from(json["crew"].map((x) => Crew.fromMap(x))),
         capsules: List<String>.from(json["capsules"].map((x) => x)),
         payloads: List<String>.from(json["payloads"].map((x) => x)),
         launchpad: json["launchpad"],
@@ -107,10 +103,8 @@ class SpacexModel {
         "window": window,
         "rocket": rocket,
         "success": success,
-        "failures": List<dynamic>.from(failures.map((x) => x)),
         "details": details,
-        "crew": List<dynamic>.from(crew.map((x) => x)),
-        "ships": List<dynamic>.from(ships.map((x) => x)),
+        "crew": List<Crew>.from(crew.map((x) => x)),
         "capsules": List<dynamic>.from(capsules.map((x) => x)),
         "payloads": List<dynamic>.from(payloads.map((x) => x)),
         "launchpad": launchpad,
@@ -174,6 +168,26 @@ class Core {
         "landing_success": landingSuccess,
         "landing_type": landingType,
         "landpad": landpad,
+      };
+}
+
+class Crew {
+  String crew;
+  String role;
+
+  Crew({
+    required this.crew,
+    required this.role,
+  });
+
+  factory Crew.fromMap(Map<String, dynamic> json) => Crew(
+        crew: json["crew"],
+        role: json["role"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "crew": crew,
+        "role": role,
       };
 }
 

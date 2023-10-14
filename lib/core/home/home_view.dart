@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
-import 'package:spacex_flutter/bloc/spacex_bloc.dart';
-import 'package:spacex_flutter/bloc/spacex_events.dart';
-import 'package:spacex_flutter/bloc/spacex_states.dart';
-import 'package:spacex_flutter/core/home/home_page.dart';
+import 'package:spacex_flutter/bloc/latest_bloc_f/latest_bloc.dart';
+import 'package:spacex_flutter/bloc/latest_bloc_f/lates_events.dart';
+import 'package:spacex_flutter/bloc/latest_bloc_f/lates_states.dart';
+import 'package:spacex_flutter/core/latest_launch/latest_launch_view.dart';
+import 'package:spacex_flutter/core/next_launch/next_launch_bloc.dart';
+
 import 'package:spacex_flutter/product/constans/string_constans.dart';
-import 'package:spacex_flutter/product/repository/spacex_repositorty.dart';
+import 'package:spacex_flutter/product/repository/spacex_repository.dart';
 
 int index = 0;
 
@@ -34,55 +36,55 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return BlocProvider(
-      create: (context) => SpacexBloc(
-        RepositoryProvider.of<SpacexRepository>(context),
-      )..add(LoadSpacexData()),
-      child: Scaffold(
-        bottomNavigationBar: BottomAppBar(
-            notchMargin: _notchMargin,
-            shape: const CircularNotchedRectangle(),
-            child: _myTabBar()),
-        appBar: AppBar(
-          title: Text(StringConstans.appBarTitle,
-              style: GoogleFonts.raleway(
-                textStyle: context.general.textTheme.titleLarge!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
-        ),
-        body: BlocBuilder<SpacexBloc, SpacexStates>(
-          builder: (BuildContext context, state) {
-            debugPrint('state: ${state.runtimeType}');
+        create: (context) => SpacexBloc(
+              RepositoryProvider.of<SpacexRepository>(context),
+            )..add(LoadSpacexData()),
+        child: Scaffold(
+            bottomNavigationBar: BottomAppBar(
+                notchMargin: _notchMargin,
+                shape: const CircularNotchedRectangle(),
+                child: _myTabBar()),
+            appBar: AppBar(
+              title: Text(StringConstans.appBarTitle,
+                  style: GoogleFonts.raleway(
+                    textStyle: context.general.textTheme.titleLarge!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )),
+            ),
+            body: BlocBuilder<SpacexBloc, SpacexStates>(
+              builder: (BuildContext context, state) {
+                debugPrint('state: ${state.runtimeType}');
 
-            if (state is SpacexInitialState || state is SpacexLoadingState) {
-              const CircularProgressIndicator();
-            } else if (state is SpacexErrorState) {
-              debugPrint('error : ${state.message}');
-              return Text('Getting Error: ${state.message}');
-            } else if (state is SpacexLoadedState) {
-              return RefreshIndicator(
-                  onRefresh: () async {
-                    BlocProvider.of<SpacexBloc>(context).add(LoadSpacexData());
-                  },
-                  child: TabBarView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      controller: _tabController,
-                      children: [
-                        HomePage(
-                          state: state,
-                          size: size,
-                          index: index,
-                        ),
-                        Container(color: Colors.blue),
-                        Container(color: Colors.green),
-                        Container(color: Colors.pink),
-                      ]));
-            }
-            return const SizedBox.shrink();
-          },
-        ),
-      ),
-    );
+                if (state is SpacexInitialState ||
+                    state is SpacexLoadingState) {
+                  const CircularProgressIndicator();
+                } else if (state is SpacexErrorState) {
+                  debugPrint('error : ${state.message}');
+                  return Text('Getting Error: ${state.message}');
+                } else if (state is SpacexLoadedState) {
+                  return RefreshIndicator(
+                    onRefresh: () async {
+                      BlocProvider.of<SpacexBloc>(context)
+                          .add(LoadSpacexData());
+                    },
+                    child: TabBarView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        controller: _tabController,
+                        children: [
+                          LatestLaunch(
+                            state: state,
+                            size: size,
+                            index: index,
+                          ),
+                          NextLaunch(),
+                          Container(color: Colors.green),
+                        ]),
+                  );
+                }
+                return const SizedBox.shrink();
+              },
+            )));
   }
 
   TabBar _myTabBar() {
@@ -100,6 +102,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 }
 
-enum _MyTabViews { HOME, ALL, favorite, profile }
+enum _MyTabViews { Latest, Upcoming, Past }
 
 extension _MyTabViewExtension on _MyTabViews {}

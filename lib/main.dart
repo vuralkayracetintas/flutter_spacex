@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(
-            // useMaterial3: true,
-            ),
+          useMaterial3: true,
+        ),
         home: const SplashPage());
   }
 }

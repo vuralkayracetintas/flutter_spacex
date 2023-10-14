@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:spacex_flutter/product/models/spacex_model.dart';
+import 'package:spacex_flutter/product/models/latest_model.dart';
 
 @immutable
 abstract class SpacexStates extends Equatable {
@@ -21,12 +21,16 @@ class SpacexLoadingState extends SpacexStates {
 //data loaded
 
 class SpacexLoadedState extends SpacexStates {
-  final SpacexModel spacexModel;
+  final LatestModel spacexModel;
 
-  const SpacexLoadedState(this.spacexModel);
+  const SpacexLoadedState(
+    this.spacexModel,
+  );
 
   @override
-  List<Object?> get props => [spacexModel];
+  List<Object?> get props => [
+        spacexModel,
+      ];
 }
 
 //data error

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:spacex_flutter/core/home/home_view.dart';
-import 'package:spacex_flutter/product/repository/spacex_repositorty.dart';
+import 'package:spacex_flutter/product/repository/spacex_repository.dart';
+import 'package:spacex_flutter/product/repository/upcoming_repository.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -22,8 +23,15 @@ class _SplashPageState extends State<SplashPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => RepositoryProvider(
-                  create: (context) => SpacexRepository(),
+            builder: (context) => MultiRepositoryProvider(
+                  providers: [
+                    RepositoryProvider<SpacexRepository>(
+                      create: (context) => SpacexRepository(),
+                    ),
+                    RepositoryProvider<NextLaunchRepository>(
+                      create: (context) => NextLaunchRepository(),
+                    ),
+                  ],
                   child: const HomeView(),
                 )),
       );

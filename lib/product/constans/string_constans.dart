@@ -30,7 +30,6 @@ class StringConstans {
   static const String flightNumber = 'Flight Number: ';
 
   static const String date = 'Date : ';
-  // static const String spacemanImage = 'assets/images/spaceman.png';
 
   static const String errorLoadData = 'Error loading data';
   static const String detaildValueNot =

@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
                 if (state is SpacexInitialState ||
                     state is SpacexLoadingState) {
-                  const CircularProgressIndicator();
+                  const Center(child: CircularProgressIndicator());
                 } else if (state is SpacexErrorState) {
                   debugPrint('error : ${state.message}');
                   return Text('Getting Error: ${state.message}');
@@ -90,13 +90,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   TabBar _myTabBar() {
     return TabBar(
-      indicatorColor: Colors.white,
-      labelColor: Colors.green,
-      unselectedLabelColor: Colors.red,
+      indicatorColor: context.general.randomColor,
+      labelColor: context.general.randomColor,
+      unselectedLabelColor: context.general.randomColor,
       padding: EdgeInsets.zero,
       onTap: (int index) {},
       labelStyle: const TextStyle(fontStyle: FontStyle.italic),
-      unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal),
+      unselectedLabelStyle: context.general.textTheme.titleMedium,
       controller: _tabController,
       tabs: _MyTabViews.values.map((e) => Tab(text: e.name)).toList(),
     );

@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:spacex_flutter/product/constans/image_constans.dart';
 
 class CarouselSliderModel extends StatelessWidget {
   const CarouselSliderModel({

@@ -32,7 +32,7 @@ class _NextLaunchState extends State<NextLaunch> {
               debugPrint('state: ${state.runtimeType}');
 
               if (state is NextInitialState || state is NextLoadingState) {
-                const CircularProgressIndicator();
+                const Center(child: CircularProgressIndicator());
               } else if (state is NextErrorState) {
                 debugPrint('error : ${state.message}');
                 return Text('Getting Error: ${state.message}');
@@ -49,24 +49,5 @@ class _NextLaunchState extends State<NextLaunch> {
             },
           ),
         ));
-    // return Scaffold(
-    //     body: SingleChildScrollView(
-    //   child: Padding(
-    //     padding: context.padding.low,
-    //     child: FutureBuilder<void>(
-    //       future: precacheImage(
-    //           NetworkImage(widget.state.nextModel.links.patch.small), context),
-    //       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-    //         if (snapshot.connectionState == ConnectionState.waiting) {
-    //           return const Center(child: CircularProgressIndicator());
-    //         } else if (snapshot.hasError) {
-    //           return const Center(child: Text(StringConstans.errorLoadData));
-    //         } else {
-    //           return const Text('text');
-    //         }
-    //       },
-    //     ),
-    //   ),
-    // ));
   }
 }

@@ -26,7 +26,7 @@ class _PastLauncBlocState extends State<PastLauncBloc> {
             debugPrint('state: ${state.runtimeType}');
 
             if (state is PastInitialState || state is PastLoadingState) {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             } else if (state is PastErrorState) {
               debugPrint('error : ${state.message}');
             } else if (state is PastLoadedState) {

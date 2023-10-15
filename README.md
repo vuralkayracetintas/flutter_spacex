@@ -1,16 +1,48 @@
-# spacex_flutter
+# SpaceX API Flutter 
 
-A new Flutter project.
+API =>
+ [SpaceX Latest Launch API](https://api.spacexdata.com/v4/launches/latest) 
 
-## Getting Started
+Bu Flutter uygulaması, SpaceX API'sinden veri çekerek son uçuş, geçmiş uçuşlar ve gelecek uçuşlar hakkında bilgileri görüntülemek için tasarlanmıştır.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Ekran Görüntüleri
+
+<div style="display: flex; justify-content: center;">
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="assets/screenshots/1.png" alt="Ana Ekran" width="300" />
+    <img src="assets/screenshots/2.png" alt="Ana Ekran" width="300" />
+    <p style="text-align: center;">Splash, Home</p>
+  </div>
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="assets/screenshots/3.png" alt="Ana Ekran" width="300" />
+    <img src="assets/screenshots/4.png" alt="Ana Ekran" width="300" />
+    <p style="text-align: center;">Splash, Home</p>
+  </div>
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="assets/screenshots/5.png" alt="Ana Ekran" width="300" />
+    <img src="assets/screenshots/6.png" alt="Ana Ekran" width="300" />
+    <p style="text-align: center;">Splash, Home</p>
+  </div>
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="assets/screenshots/7.png" alt="Ana Ekran" width="300" />
+    
+  </div>
+</div>
+
+
+##  Packages Used / Kullanılan Paketler
+
+- cupertino_icons: [![Pub Version](https://img.shields.io/pub/v/cupertino_icons.svg)](https://pub.dev/packages/cupertino_icons)
+- http: [![Pub Version](https://img.shields.io/pub/v/http.svg)](https://pub.dev/packages/http)
+- equatable: [![Pub Version](https://img.shields.io/pub/v/equatable.svg)](https://pub.dev/packages/equatable)
+- flutter_bloc: [![Pub Version](https://img.shields.io/pub/v/flutter_bloc.svg)](https://pub.dev/packages/flutter_bloc)
+- kartal: [![Pub Version](https://img.shields.io/pub/v/kartal.svg)](https://pub.dev/packages/kartal)
+- url_launcher: [![Pub Version](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dev/packages/url_launcher)
+- dio: [![Pub Version](https://img.shields.io/pub/v/dio.svg)](https://pub.dev/packages/dio)
+- carousel_slider: [![Pub Version](https://img.shields.io/pub/v/carousel_slider.svg)](https://pub.dev/packages/carousel_slider)
+- google_fonts: [![Pub Version](https://img.shields.io/pub/v/google_fonts.svg)](https://pub.dev/packages/google_fonts) 
+
+

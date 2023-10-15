@@ -14,17 +14,17 @@ Bu Flutter uygulaması, SpaceX API'sinden veri çekerek son uçuş, geçmiş uç
   <div style="flex: 1; margin-right: 10px;">
     <img src="assets/screenshots/1.png" alt="Ana Ekran" width="300" />
     <img src="assets/screenshots/2.png" alt="Ana Ekran" width="300" />
-    <p style="text-align: center;">Splash, Home</p>
+    
   </div>
   <div style="flex: 1; margin-right: 10px;">
     <img src="assets/screenshots/3.png" alt="Ana Ekran" width="300" />
     <img src="assets/screenshots/4.png" alt="Ana Ekran" width="300" />
-    <p style="text-align: center;">Splash, Home</p>
+    
   </div>
   <div style="flex: 1; margin-right: 10px;">
     <img src="assets/screenshots/5.png" alt="Ana Ekran" width="300" />
     <img src="assets/screenshots/6.png" alt="Ana Ekran" width="300" />
-    <p style="text-align: center;">Splash, Home</p>
+    
   </div>
   <div style="flex: 1; margin-right: 10px;">
     <img src="assets/screenshots/7.png" alt="Ana Ekran" width="300" />
